@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-/// 7:16:54  da kaldim 
+/// 9:08:00  da kaldim 
 struct AppetizerTabView: View {
     var body: some View {
         TabView {
@@ -24,6 +24,7 @@ struct AppetizerTabView: View {
                 .tabItem {
                     Image(systemName: "bag")
                     Text("Order")
+                    
                 }
         }
         .tint(.brandPrimary)

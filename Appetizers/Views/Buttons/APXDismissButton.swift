@@ -9,7 +9,15 @@ import SwiftUI
 
 struct APXDismissButton: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image(systemName: "xmark")
+            .imageScale(.small)
+            .tint(.black)
+            .padding(6)
+            .background(.white)
+            .opacity(0.6)
+            .clipShape(Circle())
+            .padding()
+            
     }
 }
 

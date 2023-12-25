@@ -12,3 +12,8 @@ enum APError: Error {
     case invalidData
     case unableToComplete
 }
+
+enum APFormError: Error {
+    case invalidEmail
+    case invalidForm
+}

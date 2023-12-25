@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+extension Int {
+    func toString() -> String {
+        let stringValue = String(self)
+        return stringValue
+    }
+}

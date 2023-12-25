@@ -57,5 +57,5 @@ struct AppetizerRemoteImage: View {
 }
 
 #Preview(body: {
-    AppetizerRemoteImage(urlString: MockData.sampleAppetizer.imageURL)
+    AppetizerRemoteImage(urlString: MockData.sampleAppetizerOne.imageURL)
 })

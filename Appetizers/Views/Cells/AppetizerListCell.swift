@@ -29,26 +29,26 @@ struct AppetizerListCell: View {
 //                        .frame(width: 120,height: 90)
 //                }
 //            }
+
             AppetizerRemoteImage(urlString: appetizer.imageURL)
-                .aspectRatio(contentMode: .fit)
+                .aspectRatio(contentMode: .fill)
                 .frame(width: 120,height: 90)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
-                
-
+                .padding(.leading, 8)
             VStack(alignment: .leading, spacing: 5) {
                 Text(appetizer.name)
                     .font(.title2)
                     .fontWeight(.medium)
-                Text(appetizer.price.formatted(.currency(code: "TRY")))
+                Text(appetizer.price.convertCurrency(currencyCode: "USD"))
                     .font(.title3)
                     .foregroundStyle(.secondary)
                     .fontWeight(.semibold)
             }
-            .padding(.leading)
+            Spacer()
         }
     }
 }
 
 #Preview {
-    AppetizerListCell(appetizer: MockData.sampleAppetizer)
+    AppetizerListCell(appetizer: MockData.sampleAppetizerOne)
 }

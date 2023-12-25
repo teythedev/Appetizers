@@ -23,8 +23,24 @@ struct AppetizerResponse: Decodable {
 
 
 struct MockData {
-    static let sampleAppetizer = Appetizer(id: 0001, 
-                                           name: "Test Appetizer",
+    static let sampleAppetizerOne = Appetizer(id: 0001,
+                                           name: "Test Appetizer 1",
+                                           description: "This is the description for my appetizer. it's yummy",
+                                           price: 9.99,
+                                           imageURL: "https://img.freepik.com/free-photo/side-view-shawarma-with-fried-potatoes-board-cookware_176474-3215.jpg?w=1060&t=st=1703333095~exp=1703333695~hmac=9020ec5bb733c7ceb79a10408baa8dfd296b1a8f67368036746a6089fcbb2789",
+                                           calories: 99,
+                                           protein: 9,
+                                           carbs: 32)
+    static let sampleAppetizerTwo = Appetizer(id: 0002,
+                                           name: "Test Appetizer 2",
+                                           description: "This is the description for my appetizer. it's yummy",
+                                           price: 9.99,
+                                           imageURL: "https://img.freepik.com/free-photo/side-view-shawarma-with-fried-potatoes-board-cookware_176474-3215.jpg?w=1060&t=st=1703333095~exp=1703333695~hmac=9020ec5bb733c7ceb79a10408baa8dfd296b1a8f67368036746a6089fcbb2789",
+                                           calories: 99,
+                                           protein: 9,
+                                           carbs: 32)
+    static let sampleAppetizerThree = Appetizer(id: 0003,
+                                           name: "Test Appetizer 3",
                                            description: "This is the description for my appetizer. it's yummy",
                                            price: 9.99,
                                            imageURL: "https://img.freepik.com/free-photo/side-view-shawarma-with-fried-potatoes-board-cookware_176474-3215.jpg?w=1060&t=st=1703333095~exp=1703333695~hmac=9020ec5bb733c7ceb79a10408baa8dfd296b1a8f67368036746a6089fcbb2789",
@@ -32,5 +48,5 @@ struct MockData {
                                            protein: 9,
                                            carbs: 32)
     
-    static let appetizers: [Appetizer] = [sampleAppetizer,sampleAppetizer,sampleAppetizer,sampleAppetizer,sampleAppetizer]
+   // static let appetizers: [Appetizer] = [sampleAppetizer,sampleAppetizer,sampleAppetizer,sampleAppetizer,sampleAppetizer]
 }

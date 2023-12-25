@@ -10,67 +10,70 @@ import SwiftUI
 struct AppetizerDetailView: View {
     let appetizer: Appetizer
     
+    @Binding var isShowingDetail: Bool
+    
     var body: some View {
-        VStack(spacing: 16) {
+        VStack() {
             AppetizerRemoteImage(urlString: appetizer.imageURL)
-            Text(appetizer.name)
-                .font(.title2)
-                .fontWeight(.medium)
-            Text(appetizer.description)
-                .multilineTextAlignment(.center)
-                .foregroundStyle(.secondary)
-                .padding()
-            HStack(spacing: 70) {
-                NutritionVStack(title: "Calories", value: appetizer.calories.toString())
-                NutritionVStack(title: "Carbs", value: "\(appetizer.carbs) g")
-                NutritionVStack(title: "Protein", value: "\(appetizer.protein) g")
-            }
-            Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 12)
-                        .frame(width: .infinity,height: 60)
-                        .padding()
-                    .tint(.brandPrimary)
-                    Text("\(appetizer.price.formatted(.currency(code: "USD"))) - Add To Order")
-                        .font(.title2)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(.background)
+                .frame(width: 300, height: 225)
+            VStack{
+                Text(appetizer.name)
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                Text(appetizer.description)
+                    .font(.body)
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(.secondary)
+                    .padding()
+                HStack(spacing: 40) {
+                    NutritionInfo(title: "Calories", value: appetizer.calories.toString())
+                    NutritionInfo(title: "Carbs", value: "\(appetizer.carbs) g")
+                    NutritionInfo(title: "Protein", value: "\(appetizer.protein) g")
                 }
+            }
+            Spacer()
+            Button(action: {
+                print("Button Tapped")
+            }, label: {
+                APButton(title: "\(appetizer.price.formatted(.currency(code: "USD"))) - Add To Order")
             })
+            .padding(.bottom,30)
         }
+        .frame(width: 300,height: 525)
+        .background(Color(.systemBackground))
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .shadow(radius: 40)
         .overlay(alignment: .topTrailing) {
             Button {
+                withAnimation(.bouncy) {
+                    isShowingDetail = false
+                }
                 
             }label: {
-                Image(systemName: "xmark")
-                    .tint(.primary)
-                    .padding(8)
-                    .background(.white)
-                    .opacity(0.6)
-                    .clipShape(Circle())
-                    .padding()
-                    
+               APXDismissButton()
             }
         }
     }
     
-    struct NutritionVStack: View {
+    struct NutritionInfo: View {
         let title: String
         let value: String
         var body: some View {
-            VStack{
+            VStack(spacing: 5) {
                 Text(title)
-                    .font(.subheadline)
+                    .fontWeight(.bold)
+                    .font(.caption)
                 Text(value)
                     .italic()
                     .foregroundStyle(.secondary)
+                    .fontWeight(.semibold)
             }
         }
     }
 }
 
 #Preview {
-    AppetizerDetailView(appetizer: MockData.sampleAppetizer)
+    AppetizerDetailView(appetizer: MockData.sampleAppetizerOne,isShowingDetail: .constant(true))
 }
 
 
